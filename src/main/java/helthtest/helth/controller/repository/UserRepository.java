@@ -1,0 +1,15 @@
+package helthtest.helth.controller.repository;
+
+import helthtest.helth.domain.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+
+    Optional<UserEntity> findByPhone(String phone);
+
+    boolean existsByPhone(String phone);
+}
