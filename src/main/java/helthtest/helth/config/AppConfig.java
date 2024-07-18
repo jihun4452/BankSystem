@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration //bean 정의 어노테이션
 @EnableWebSecurity //security 활성화 시켜주는 어노테이션
+
 public class AppConfig {
     @Bean //spring 관리받는
     public PasswordEncoder passwordEncoder()  { //bean 타입 생성
