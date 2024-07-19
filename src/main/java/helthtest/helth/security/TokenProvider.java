@@ -18,8 +18,9 @@ import java.util.Date;
 @Component
 @RequiredArgsConstructor
 public class TokenProvider {
-    private static final String KEY_ROLE = "role"; // 역할을 저장하기 위한 키
-    private static final long TOKEN_EXPIRES_TIME = 1000 * 60 * 60; // 한 시간 동안 유효한 토큰
+
+    private static final String KEY_ROLE = "role";
+    private static final long TOKEN_EXPIRES_TIME = 1000 * 60 * 60;
 
     private final UserService userService;
 
@@ -35,9 +36,9 @@ public class TokenProvider {
 
         return Jwts.builder()
                 .setClaims(claims)
-                .setIssuedAt(now) // 토큰 생성 시간
-                .setExpiration(expirationDate) // 토큰 만료 시간
-                .signWith(SignatureAlgorithm.HS512, secretKey) // 암호화 알고리즘 및 비밀 키
+                .setIssuedAt(now)
+                .setExpiration(expirationDate)
+                .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
 

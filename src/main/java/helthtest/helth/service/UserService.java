@@ -1,6 +1,6 @@
 package helthtest.helth.service;
 
-import helthtest.helth.controller.repository.UserRepository;
+import helthtest.helth.domain.repository.UserRepository;
 import helthtest.helth.domain.UserEntity;
 import helthtest.helth.dto.SignInRequest;
 import helthtest.helth.dto.SignUpDto;

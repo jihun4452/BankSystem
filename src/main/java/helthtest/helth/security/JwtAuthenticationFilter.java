@@ -18,7 +18,6 @@ import java.io.IOException;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     public static final String TOKEN_HEADER = "Authorization";
     public static final String TOKEN_PREFIX = "Bearer ";
@@ -27,15 +26,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // 다음 필터 실행 전 처리하는 로직
         String token = resolveTokenFromRequest(request);
 
         if (StringUtils.hasText(token) && tokenProvider.validateToken(token)) {
-            // 토큰 유효성 검증
             Authentication auth = tokenProvider.getAuthentication(token);
             SecurityContextHolder.getContext().setAuthentication(auth);
         }
-        // 다음 filter-chain 실행
         filterChain.doFilter(request, response);
     }
 
@@ -49,4 +45,3 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         return null;
     }
 }
-

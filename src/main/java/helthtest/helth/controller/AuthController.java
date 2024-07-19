@@ -33,9 +33,6 @@ public class AuthController {
                         .build());
     }
 
-    /**
-     * 로그인 api_23.08.01
-     */
     @PostMapping("/sign-in")
     public ResponseEntity<String> signIn(@RequestBody SignInRequest request) {
         UserEntity user = this.userService.authenticate(request);

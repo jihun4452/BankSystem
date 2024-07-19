@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@AuditOverride(forClass= BaseEntity.class)
+@AuditOverride(forClass = BaseEntity.class)
 public class AccountEntity extends BaseEntity {
 
     @Id
@@ -47,4 +47,31 @@ public class AccountEntity extends BaseEntity {
     private Boolean isDeleted;
 
     private LocalDateTime deletedAt;
+
+    public AccountEntity withIsDeleted(Boolean isDeleted) {
+        return AccountEntity.builder()
+                .id(this.id)
+                .user(this.user)
+                .bank(this.bank)
+                .accountNumber(this.accountNumber)
+                .accountName(this.accountName)
+                .amount(this.amount)
+                .isDeleted(isDeleted)
+                .deletedAt(this.deletedAt)
+                .build();
+    }
+
+    public AccountEntity withDeletedAt(LocalDateTime deletedAt) {
+        return AccountEntity.builder()
+                .id(this.id)
+                .user(this.user)
+                .bank(this.bank)
+                .accountNumber(this.accountNumber)
+                .accountName(this.accountName)
+                .amount(this.amount)
+                .isDeleted(this.isDeleted)
+                .deletedAt(deletedAt)
+                .build();
+    }
 }
+

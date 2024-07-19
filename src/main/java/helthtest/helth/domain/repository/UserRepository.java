@@ -1,4 +1,4 @@
-package helthtest.helth.controller.repository;
+package helthtest.helth.domain.repository;
 
 import helthtest.helth.domain.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
