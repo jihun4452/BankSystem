@@ -25,7 +25,7 @@ public class TransactionEntity {
     private AccountEntity account;
 
     @Enumerated(EnumType.STRING)
-    private Transaction transaction;
+    private Transaction transactionType;
 
     @NotNull
     private Long amount;
