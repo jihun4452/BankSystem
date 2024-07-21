@@ -48,6 +48,10 @@ public class AccountEntity extends BaseEntity {
 
     private LocalDateTime deletedAt;
 
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
+
     public AccountEntity withIsDeleted(Boolean isDeleted) {
         return AccountEntity.builder()
                 .id(this.id)
